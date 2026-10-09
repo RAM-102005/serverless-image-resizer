@@ -8,7 +8,7 @@ When an image is uploaded to the input Amazon S3 bucket, it automatically trigge
 
 ## Architecture
 
-![Architecture Diagram](ad.png)
+![Architecture Diagram](images/ad.png)
 
 ### Project Flow
 
@@ -42,13 +42,13 @@ AWS Lambda → Amazon CloudWatch Logs
 
 ## Lambda Function Overview
 
-![Lambda Function Overview](lfo.png)
+![Lambda Function Overview](images/lfo.png)
 
 The S3 event automatically triggers the Lambda function whenever a new image is uploaded.
 
 ## Lambda Code
 
-![Lambda Code](11.png)
+![Lambda Code](images/11.png)
 
 The Lambda function downloads the original image, processes it using Pillow, and uploads the resized versions to the output bucket.
 
@@ -56,25 +56,25 @@ The complete source code is available in [`lambda_function.py`](lambda_function.
 
 ## Pillow Layer
 
-![Pillow Layer](111.png)
+![Pillow Layer](images/111.png)
 
 The Pillow library is added as a Lambda Layer and is used for image processing.
 
 ## S3 Input Bucket
 
-![S3 Input Bucket](s3-in.png)
+![S3 Input Bucket](images/s3-in.png)
 
 The input bucket stores the original uploaded image.
 
 ## S3 Output Bucket
 
-![S3 Output Bucket](s3-out.png)
+![S3 Output Bucket](images/s3-out.png)
 
 The output bucket stores the resized images in separate `thumbnail`, `medium`, and `large` folders.
 
 ## CloudWatch Logs
 
-![CloudWatch Logs](1.png)
+![CloudWatch Logs](images/1.png)
 
 CloudWatch logs confirm successful Lambda execution using START, END, and REPORT log entries.
 
